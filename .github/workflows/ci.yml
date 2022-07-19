@@ -1,0 +1,78 @@
+---
+name: CI
+permissions:
+  contents: write
+"on":
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/ci.yml"
+      - ".gitignore"
+      - ".gitattributes"
+      - ".yamllint"
+      - "LICENSE"
+      - "src/**"
+      - "tests/**"
+      - "package.json"
+      - "package-lock.json"
+  schedule:
+    # At 05:00 on Sunday.
+    - cron: "0 5 * * 0"
+
+jobs:
+  package:
+    name: Run Everything and Package Distribution File
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check out the codebase
+        uses: actions/checkout@v3
+
+      - name: set up python 3
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
+
+      - name: setup node 16 and activate npm download cache
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn" # one of "npm", "yarn" or "pnpm"
+
+      - name: setup/activate pre-commit cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pre-commit
+          key: ${{ hashFiles('**/.pre-commit-config.yaml') }}
+
+      # https://stackoverflow.com/a/69944063/13953427
+      - name: install npm dependencies (including dev)
+        run: yarn install -D --immutable --immutable-cache --check-cache
+
+      - name: install dev dependencies
+        run: pip3 install -r requirements-dev.txt
+
+      # same order as in 'yarn run all':
+      - name: Compile Typescript.
+        run: yarn run build
+
+      - name: Format Code.
+        run: yarn run format
+
+      - name: Lint Code.
+        run: yarn run lint
+
+      - name: Compile source into single file.
+        run: yarn run package
+
+      - name: Test.
+        run: yarn run test
+
+      - name: Commit generated dist.
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: generate packaged distribution file for ${{ github.sha }} \n ${{ github.event.head_commit.message }}"
+          file_pattern: "dist/*"

@@ -1,0 +1,11 @@
+name: "cookiecutter-github-action-typescript-test"
+description: "do some stuff"
+author: "Jonas Pammer"
+inputs:
+  milliseconds: # just an example
+    required: true
+    description: "input description here"
+    default: "default value if applicable"
+runs:
+  using: "node16" # LTS version installed by default on every GitHub Runner (https://github.com/actions/virtual-environments/)
+  main: "dist/index.js"

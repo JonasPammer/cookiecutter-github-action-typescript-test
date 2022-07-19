@@ -1,0 +1,19 @@
+{
+  "template": "https://github.com/JonasPammer/cookiecutter-github-action-typescript.git",
+  "commit": "91a907b11ead7bdba6291ce0d9044da333ab0427",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "full_name": "Jonas Pammer",
+      "email": "opensource@jonaspammer.at",
+      "github_username": "JonasPammer",
+      "code_of_conduct_enforcement_contact_email": "opensource@jonaspammer.at",
+      "project_name": "CookieCutter GitHub Action TypeScript Test",
+      "project_slug": "cookiecutter-github-action-typescript-test",
+      "pkg_name": "cookiecutter_github_action_typescript_test",
+      "project_short_description": "do some stuff",
+      "_template": "https://github.com/JonasPammer/cookiecutter-github-action-typescript.git"
+    }
+  },
+  "directory": null
+}

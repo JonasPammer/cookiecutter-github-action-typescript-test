@@ -1,0 +1,108 @@
+= CookieCutter GitHub Action TypeScript Test
+Jonas Pammer <opensource@jonaspammer.at>;
+:toc:
+:toclevels: 3
+:toc-placement!:
+:source-highlighter: rouge
+
+ifdef::env-github[]
+// https://gist.github.com/dcode/0cfbf2699a1fe9b46ff04c41721dda74#admonitions
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+// Very Relevant Status Badges
+https://github.com/JonasPammer/cookiecutter-github-action-typescript-test/actions/workflows/ci.yml[image:https://github.com/JonasPammer/cookiecutter-github-action-typescript-test/actions/workflows/ci.yml/badge.svg[CI Status]]
+https://github.com/JonasPammer/cookiecutter-github-action-typescript-test/actions/workflows/ci-self.yml[image:https://github.com/JonasPammer/cookiecutter-github-action-typescript-test/actions/workflows/ci-self.yml/badge.svg[CI Status]]
+
+
+A Javascript-based Action to do some stuff.
+
+
+toc::[]
+
+== System Requirements
+
+* As a JavaScript based Action, this action can be run by any Operating system (
+image:https://img.shields.io/badge/Ubuntu-E95420?logo=ubuntu&logoColor=white[Ubuntu],
+image:https://img.shields.io/badge/mac%20OS-000000?logo=macos&logoColor=F0F0F0[Mac OS] &
+image:https://img.shields.io/badge/Windows%20Server-0078D6?logo=windows&logoColor=white[Windows Server]
+).
+See https://docs.github.com/en/actions/creating-actions/about-custom-actions#types-of-actions["Types of Actions" in the GitHub Documentation]
+for more information.
+
+== Usage
+This action needs the GITHUB_TOKEN secret
+as it interacts with the GitHub API to **FIXME describe why**.
+
+The action can be used as follows
+
+.pass:[.]github/ci/cookiecutter-github-action-typescript-test.yml
+[source,yaml]
+----
+---
+name: CookieCutter GitHub Action TypeScript Test
+permissions:
+  # FIXME: add project-dependant relevant permissions https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
+"on":
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/cookiecutter-github-action-typescript-test.yml"
+      # FIXME: add project-dependant relevant paths
+
+jobs:
+  labels:
+    name: Invoke cookiecutter-github-action-typescript-test action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: JonasPammer/cookiecutter-github-action-typescript-test@master # FIXME: change to release version
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+----
+
+
+== Scenarios
+TODO
+
+
+[[development]]
+== 📝 Development
+image:https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white[pre-commit, link=https://github.com/pre-commit/pre-commit]
+https://results.pre-commit.ci/latest/github/JonasPammer/cookiecutter-github-action-typescript-test/master[image:https://results.pre-commit.ci/badge/github/JonasPammer/cookiecutter-github-action-typescript-test/master.svg[pre-commit.ci status]]
+https://github.com/prettier/prettier[image:https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square[code style: prettier]]
+https://conventionalcommits.org[image:https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg[Conventional Commits]]
+
+include::DEVELOPMENT.adoc[]
+
+
+[[contributing]]
+== 💪 Contributing image:https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square[PRs Welcome]
+https://open.vscode.dev/JonasPammer/cookiecutter-github-action-typescript-test[image:https://img.shields.io/static/v1?logo=visualstudiocode&label=&message=Open%20in%20Visual%20Studio%20Code&labelColor=2c2c32&color=007acc&logoColor=007acc[Open in Visual Studio Code]]
+
+include::CONTRIBUTING.adoc[]
+
+
+[[changelog]]
+== 🗒 Changelog
+Please refer to the
+https://github.com/JonasPammer/cookiecutter-github-action-typescript-test/releases[Release Page of this Repository]
+for a human changelog of the corresponding
+https://github.com/JonasPammer/cookiecutter-github-action-typescript-test/tags[Tags (Versions) of this Project].
+
+Note that this Project adheres to Semantic Versioning.
+Please report any accidental breaking changes of a minor version update.
+
+
+[[license]]
+== ⚖️ License
+
+.link:LICENSE[]
+----
+include::LICENSE[]
+----

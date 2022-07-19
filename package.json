@@ -1,0 +1,43 @@
+{
+  "name": "cookiecutter_github_action_typescript_test",
+  "version": "0.0.1",
+  "description": "do some stuff",
+  "main": "lib/main.js",
+  "scripts": {
+    "lint": "pre-commit run eslint --all-files",
+    "format": "pre-commit run prettier --all-files",
+    "build": "tsc",
+    "package": "ncc build --source-map --license LICENSE.txt",
+    "test": "jest",
+    "all": "yarn run build && yarn run format && yarn run lint && yarn run package && yarn run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonasPammer/cookiecutter-github-action-typescript-test.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "JavaScript",
+    "TypeScript"
+  ],
+  "author": "Jonas Pammer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JonasPammer/cookiecutter-github-action-typescript-test/issues"
+  },
+  "homepage": "https://github.com/JonasPammer/cookiecutter-github-action-typescript-test#readme",
+  "dependencies": {
+    "@actions/core": "^1.9.0",
+    "@actions/github": "^5.0.3",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.34",
+    "@types/jest": "^27.5.1",
+    "@vercel/ncc": "^0.34.0",
+    "jest": "^28.1.0",
+    "ts-jest": "^28.0.2",
+    "typescript": "^4.6.4"
+  }
+}
