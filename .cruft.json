@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/JonasPammer/cookiecutter-github-action-typescript.git",
-  "commit": "91a907b11ead7bdba6291ce0d9044da333ab0427",
+  "commit": "bfcc3356b865c79fefda620b6674adae847ab70a",
   "checkout": null,
   "context": {
     "cookiecutter": {
