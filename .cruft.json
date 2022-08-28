@@ -8,10 +8,7 @@
       "email": "opensource@jonaspammer.at",
       "code_of_conduct_enforcement_contact_email": "opensource@jonaspammer.at",
       "github_username": "JonasPammer",
-      "open_source_license": [
-        "MIT License",
-        "MIT"
-      ],
+      "open_source_license": ["MIT License", "MIT"],
       "project_name": "CookieCutter GitHub Action TypeScript Test",
       "project_slug": "cookiecutter-github-action-typescript-test",
       "pkg_name": "cookiecutter_github_action_typescript_test",
