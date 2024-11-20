@@ -72,7 +72,7 @@ jobs:
         run: npm run test
 
       - name: Upload coverage to Codecov and create Pull Request comment
-        uses: codecov/codecov-action@81cd2dc8148241f03f5839d295e000b8f761e378 # tag=v3
+        uses: codecov/codecov-action@d9f34f8cd5cb3b3eb79b3e4b5dae3a16df499a70 # v3
 
       - name: Commit generated dist.
         uses: stefanzweifel/git-auto-commit-action@49620cd3ed21ee620a48530e81dba0d139c9cb80 # tag=v4
